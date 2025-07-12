@@ -1,0 +1,21 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+    Error
+{% endblock %}
+
+{% block nav %}
+    <div>
+        <br>
+        <a style="font-size: medium;" href="{% url 'encyclopedia:entry' title=head %}">Random Page</a>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <img id="family" src="{% static 'encyclopedia/family-guy-hulu-specials.png' %}", alt = "Family man image">
+    <br>
+    <br>
+    <h1 style = "text-align: center;">{{ error }}</h1>
+{% endblock %}

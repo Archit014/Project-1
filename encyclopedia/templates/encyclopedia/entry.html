@@ -1,0 +1,24 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block nav %}
+    <div>
+        <br>
+        <a style="font-size: medium;" href="{% url 'encyclopedia:entry' title=head %}">Random Page</a>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <a  href="{% url 'encyclopedia:edit'  title=title %}">
+        <button class = "sv">Edit</button>
+    </a>
+    <br>
+    <hr style="height:2px;border-width:0;color:rgb(210, 203, 203);background-color:rgb(200, 192, 192)">
+    {{ entry|safe }}
+{% endblock %}

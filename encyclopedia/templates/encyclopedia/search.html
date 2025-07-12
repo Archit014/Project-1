@@ -1,0 +1,25 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Results
+{% endblock %}
+
+{% block nav %}
+    <div>
+        <br>
+        <a style="font-size: medium;" href="{% url 'encyclopedia:entry' title=head %}">Random Page</a>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <h1>Search results for "{{ entry }}"</h1>
+    <hr>
+    <ul>
+        {% for entry in entries %}
+            <li style="font-size: large;"><a href="{% url 'encyclopedia:entry' title=entry %}">{{ entry }}</a></li>
+        {% empty %}
+            <li style="font-size: large;">No entries match your search</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}

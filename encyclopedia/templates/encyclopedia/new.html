@@ -1,0 +1,32 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+    New
+{% endblock %}
+
+{% block nav %}
+    <div>
+        <br>
+        <a style="font-size: medium;" href="{% url 'encyclopedia:entry' title=head %}">Random Page</a>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <h1>Create A New Page</h1>
+    <hr>
+    <br>
+    <form method ="post">
+        {% csrf_token %}
+        <h3>Title</h3>
+        <input id="titl" type="text" autocomplete="off" autofocus name = "title" placeholder="Title">
+        <br>
+        <br>
+        <h3>Content</h3>
+        <textarea class="txt" name="body" placeholder="Type your content here"></textarea>
+        <br>
+        <br>
+        <input class= "sv" type="submit" value="save">
+    </form>
+{% endblock %}

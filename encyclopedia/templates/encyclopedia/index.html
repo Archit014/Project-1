@@ -1,0 +1,28 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Encyclopedia
+{% endblock %}
+
+{% block nav %}
+    <div>
+        <br>
+        <a style="font-size: medium;" href="{% url 'encyclopedia:entry' title=head %}">Random Page</a>
+    </div>
+{% endblock %}
+
+{% block body %}
+    <br>
+    <h1>All Pages</h1>
+    <br>
+    <hr style="height:2px;border-width:0;color:gray;background-color:gray">
+
+    <ul>
+        {% for entry in entries %}
+            <li style="font-size: large;"><a href="{% url 'encyclopedia:entry' entry %}">{{ entry }}</a></li>
+            <br>
+            <hr>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
